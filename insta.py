@@ -1,7 +1,5 @@
-print()
-greet = "██╗░░██╗███████╗██╗░░░░░██╗░░░░░░█████╗░  ░░░       ██████╗░░█████╗░░██████╗░██████╗    \n██║░░██║██╔════╝██║░░░░░██║░░░░░██╔══██╗  ░░░       ██╔══██╗██╔══██╗██╔════╝██╔════╝    \n███████║█████╗░░██║░░░░░██║░░░░░██║░░██║  ░░░       ██████╦╝██║░░██║╚█████╗░╚█████╗░    \n██╔══██║██╔══╝░░██║░░░░░██║░░░░░██║░░██║  ██╗       ██╔══██╗██║░░██║░╚═══██╗░╚═══██╗    \n██║░░██║███████╗███████╗███████╗╚█████╔╝  ╚█║       ██████╦╝╚█████╔╝██████╔╝██████╔╝    \n╚═╝░░╚═╝╚══════╝╚══════╝╚══════╝░╚════╝░  ░╚╝       ╚═════╝░░╚════╝░╚═════╝░╚═════╝░    \n"
+greet = "█░█ █▀▀ █░░ █░░ █▀█   █▄▄ █░█ █▀▄ █▀▄ █▄█ ░\n█▀█ ██▄ █▄▄ █▄▄ █▄█   █▄█ █▄█ █▄▀ █▄▀ ░█░ █\n"
 print(greet)
-
 
 import instaloader
 
@@ -10,7 +8,7 @@ library = instaloader.Instaloader()
 
 #get basic profile details of any instagram users
 def getBasic_profile_details():
-    profile_Id = input("Enter Your Instagram User_Id : ")
+    profile_Id = input("Enter Your Instagram User_Id :- \n")
     library.download_profile(profile_Id, profile_pic_only=True)
     profile = instaloader.Profile.from_username(library.context, profile_Id)
     print("User_Name : ",profile.username)
@@ -22,35 +20,14 @@ def getBasic_profile_details():
     print("External_URL : ", profile.external_url)
     print('\n')
 
-#get tranding information of any keywords/#hashtags
 
-def searchInformation():
-    searchItem = input("Enter the Search keyword or hashtags\n")
-    #provide your search_tags here
-    search_Results = instaloader.TopSearchResults(library.context, searchItem)
-    print('\n')
-
-    # it will iterate over the extracted usernames
-    for username in search_Results.get_profiles():
-        print(username)
-
-    print('\n')
-
-    # it will iterate over the extracted #hashtags
-    for hashtag in search_Results.get_hashtags():
-        print(hashtag)
-
-    print('\n')
-
-
-
-# getBasic_profile_details()
 
 # download social media content of your Instagram Id
-def downloadSocialMediaContentFromInstragram():
+def download_latest_five_posts_on_Instragram():
     user_Id = input("Enter your Instagram User_Id :- \n")
     
     library.download_profile(user_Id, profile_pic_only=True)
+    # download profile pic on profile variable
     profile = instaloader.Profile.from_username(library.context, user_Id)
 
     # Retrieving all posts in an object
@@ -65,4 +42,15 @@ def downloadSocialMediaContentFromInstragram():
             break
 
 
-downloadSocialMediaContentFromInstragram()
+if __name__ == '__main__':
+    option = '0'
+    while option !=3:
+        option = input("Write Chosen Option Number :-  \n1) Get Basic details of any instragram account \n2) Download Latest Five posts and profile photo of any instagram user \n3) Exit This Aplication\n")
+        if option == "1":
+            getBasic_profile_details()
+        elif option == "2":
+            download_latest_five_posts_on_Instragram()
+        elif option == "3":
+            exit()
+        else:
+            print("wrong Input please try after Sometime")
