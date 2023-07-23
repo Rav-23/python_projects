@@ -8,7 +8,8 @@ library = instaloader.Instaloader()
 #get basic profile details of any instagram users
 def getBasic_profile_details():
     profile_Id = input("Enter Your Instagram User_Id :- \n")
-    library.download_profile(profile_Id, profile_pic_only=True)
+    # download profile photo
+    # library.download_profile(profile_Id, profile_pic_only=True)
     profile = instaloader.Profile.from_username(library.context, profile_Id)
     print("User_Name : ",profile.username)
     print("User_Id : ", profile.userid)
