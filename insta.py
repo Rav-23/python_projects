@@ -1,3 +1,8 @@
+print()
+greet = "██╗░░██╗███████╗██╗░░░░░██╗░░░░░░█████╗░  ░░░       ██████╗░░█████╗░░██████╗░██████╗    \n██║░░██║██╔════╝██║░░░░░██║░░░░░██╔══██╗  ░░░       ██╔══██╗██╔══██╗██╔════╝██╔════╝    \n███████║█████╗░░██║░░░░░██║░░░░░██║░░██║  ░░░       ██████╦╝██║░░██║╚█████╗░╚█████╗░    \n██╔══██║██╔══╝░░██║░░░░░██║░░░░░██║░░██║  ██╗       ██╔══██╗██║░░██║░╚═══██╗░╚═══██╗    \n██║░░██║███████╗███████╗███████╗╚█████╔╝  ╚█║       ██████╦╝╚█████╔╝██████╔╝██████╔╝    \n╚═╝░░╚═╝╚══════╝╚══════╝╚══════╝░╚════╝░  ░╚╝       ╚═════╝░░╚════╝░╚═════╝░╚═════╝░    \n"
+print(greet)
+
+
 import instaloader
 
 #creating an instance of the Instaloader class
@@ -43,7 +48,7 @@ def searchInformation():
 
 # download social media content of your Instagram Id
 def downloadSocialMediaContentFromInstragram():
-    user_Id = input("Enter your Instagram User_Id\n")
+    user_Id = input("Enter your Instagram User_Id :- \n")
     
     library.download_profile(user_Id, profile_pic_only=True)
     profile = instaloader.Profile.from_username(library.context, user_Id)
